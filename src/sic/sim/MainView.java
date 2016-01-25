@@ -31,7 +31,6 @@ import java.util.TimerTask;
  */
 public class MainView {
     private final Executor executor;
-
     private JFrame mainFrame;
     // core views
     private CPUView cpuView;
@@ -44,25 +43,36 @@ public class MainView {
 
     public MainView(final Executor executor, Disassembler disassembler) {
         this.executor = executor;
-
+        ImageIcon LogoImage=new ImageIcon("C:\\Users\\HyunA\\git\\hyun\\image\\dongguk.jpg");
+        JLabel Logo=new JLabel(LogoImage);
+        
         cpuView = new CPUView(executor, disassembler);
         disassemblyView = new DisassemblyView(executor, disassembler);
         memoryView = new MemoryView(executor);
-
         JPanel panel = new JPanel(new BorderLayout());
-        panel.add(cpuView.mainPanel, BorderLayout.NORTH);
-        panel.add(disassemblyView.mainPanel, BorderLayout.CENTER);
-
+       
+        panel.add(cpuView.mainPanel);
+        
+        panel.add(disassemblyView.mainPanel);
+        panel.add(Logo);
+        //panel.add(disassemblyView.mainPanel);
+        Logo.setBounds(20,0,400,40);
+        disassemblyView.mainPanel.setBounds(0, 300, 500, 300);
+        
+        cpuView.mainPanel.setBounds(0, 100, 500, 200);
+       //Logo.setBounds(20,0,400,40);
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.add(panel, BorderLayout.WEST);
-        mainPanel.add(memoryView.mainPanel, BorderLayout.CENTER);
-
+        mainPanel.add(panel);
+        panel.setBounds(0,0,500,700);
+        mainPanel.add(memoryView.mainPanel,BorderLayout.EAST);
+        
         mainFrame = new JFrame();
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setJMenuBar(createMenuBar());
         mainFrame.setContentPane(mainPanel);
         mainFrame.pack();
         mainFrame.setLocation(0, 0);
+        mainFrame.setBounds(0,0,1000,1000);
         mainFrame.setVisible(true);
 
         textScreen = new TextualScreen(executor);

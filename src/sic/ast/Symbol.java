@@ -115,7 +115,7 @@ public class Symbol extends Node implements Comparable<Symbol> {
         return value;
     }
 
-    public boolean isEvaluated() {
+    public boolean isEvaluated() throws NullPointerException{
         return evaluated;
     }
 
@@ -125,7 +125,7 @@ public class Symbol extends Node implements Comparable<Symbol> {
         evaluated = true;
     }
 
-    public int dependencyCount() {
+    public int dependencyCount() throws NullPointerException {
         return dependencyCount;
     }
 

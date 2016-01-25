@@ -118,8 +118,8 @@ public class Opcode {
     public static final int START       = 0;
     public static final int END         = 1;
 
-    public static final int CSECT       = 2;
-    public static final int USE         = 3;
+    public static final int CSECT       = 2;//
+    public static final int USE         = 3;//
     public static final int EXTREF      = 4;
     public static final int EXTDEF      = 5;
 

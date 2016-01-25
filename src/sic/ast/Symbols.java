@@ -109,9 +109,10 @@ public class Symbols {
                 if (s.decDependencyCount()) update(program, s.name);
     }
 
-    public void update(Program program, String name) throws AsmError {
+    public void update(Program program, String name) throws AsmError,NullPointerException {
         Symbol sym = syms.get(name);
         if (sym.dependencyCount() != 0 || sym.isEvaluated()) return;
+       // else System.out.println("dddd");
         sym.eval(program);
         notify(program, name);
     }

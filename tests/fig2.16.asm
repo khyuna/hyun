@@ -18,7 +18,7 @@ RETADR  RESW    1
 LENGTH  RESW    1
 		LTORG
 BUFFER  RESB    4096
-BUFFEND EQU     *
+BUFEND  EQU     *
 MAXLEN  EQU     BUFFEND-BUFFER
 .
 .       Subroutine to read record into buffer
@@ -55,4 +55,4 @@ WLOOP   TD     =X'01'
         TIXR    T
         JLT     WLOOP
         RSUB
-        END     FIRST
+        END         

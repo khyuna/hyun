@@ -28,7 +28,7 @@ public class EvalEQUs extends Visitor {
             program.section().symbols.notify(program, c.label());
     }
 
-    public void visit(DirectiveEQU d) throws AsmError {
+    public void visit(DirectiveEQU d) throws AsmError,NullPointerException {
         if (d.expr instanceof ExprStar && !relative) return; // TODO: ugly
 
         program.section().symbols.update(program, d.label());
