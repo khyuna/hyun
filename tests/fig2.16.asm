@@ -19,7 +19,7 @@ LENGTH  RESW    1
 		LTORG
 BUFFER  RESB    4096
 BUFEND  EQU     *
-MAXLEN  EQU     BUFFEND-BUFFER
+MAXLEN  EQU     BUFEND-BUFFER
 .
 .       Subroutine to read record into buffer
 .
